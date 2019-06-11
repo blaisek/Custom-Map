@@ -1,0 +1,35 @@
+{
+    "response": [
+        
+        {
+        "type": "Feature",
+        "properties": {
+            "name": "Parc Gourgas",
+            "popupContent": "parc Gourgas"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [6.135586,46.199352]
+        }
+    },
+
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "Carl Vogt",
+            "popupContent": "Boulevard Carl Vogt"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [6.136719,46.197345]
+        }
+    }
+
+
+
+
+
+
+]
+    
+}
