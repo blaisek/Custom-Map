@@ -41,6 +41,7 @@ class Map extends React.Component {
              L.geoJSON(point).addTo(this.map).bindPopup('<h1>'+point.properties.popupContent+'</h1>');
              
             });
+      this.listenTarget()
 
   }
 
@@ -60,9 +61,17 @@ class Map extends React.Component {
     
   }
 
-  listenTarget = () => {
-    console.log('listen target ')
+  afficheInfo = (e) => {
+    if (e.target.nodeName === "IMG"){
+      console.log('listen target',e)
+    }
   }
+
+  listenTarget = () => {
+    document.querySelector("#mapid").addEventListener('click',e =>{this.afficheInfo(e)})
+    
+  }
+ 
 
   render() {
     return (
