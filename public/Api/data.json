@@ -4,8 +4,9 @@
         {
         "type": "Feature",
         "properties": {
+            "id": 1,
             "name": "Parc Gourgas",
-            "popupContent": "parc Gourgas"
+            "popupContent": "Parc Gourgas <img src=https://files.newsnetz.ch/story/2/7/9/27940311/4/topelement.jpg><p>Un petit parc de quartier, à deux pas de Plainpalais, dédié à l’écrivain Georges Haldas</p> <a href=http://www.ville-geneve.ch/plan-ville/parcs-jardins-plages-bains-publics/parc-gourgas  target=_blank>lien externe</a><br/><input type=checkbox />"
         },
         "geometry": {
             "type": "Point",
@@ -16,19 +17,28 @@
     {
         "type": "Feature",
         "properties": {
-            "name": "Carl Vogt",
-            "popupContent": "Boulevard Carl Vogt"
+            "id": 2,
+            "name": "Université Carl Vogt",
+            "popupContent": "Université Carl Vogt <br/> <input type=checkbox />"
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [6.136719,46.197345]
+            "coordinates": [6.137135,46.197203]
+        }
+    },
+
+    {
+        "type": "Feature",
+        "properties": {
+            "id": 3,
+            "name": "Espace Tilo Frey",
+            "popupContent": "Espace Tilo Frey <br/> <input type=checkbox />"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [ 6.942344,46.993491]
         }
     }
-
-
-
-
-
 
 ]
     

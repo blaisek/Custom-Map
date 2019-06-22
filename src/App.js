@@ -8,6 +8,9 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
+  IonToggle,
+  IonLabel,
+  IonItem
 } from '@ionic/react';
 
 
@@ -39,15 +42,32 @@ class App extends Component {
     
   }
  
-  localStorage = () => {
+  handleFavori = (event) => {
 
     // if selected 
-    // stocke la liste des selected de l'enfant 
+    if(event.target.checked === true ){  
+
+      
+      console.log('local storage');
+    }
+    if(event.target.checked === false ){
+      console.log('dataBase');
+    }
+    
+    
+    
+    // stocke la liste des selected de l'enfant sur local storage
 // else fait rien 
 
 // aller chercher les marker sur local storage et les mettre dans la liste marker liste setState
     //this.setState({})
-    console.log('save to local storage');
+   
+    
+  }
+
+  reset = () => {
+    // vide le local storage et charge les marqueurs depuis la database
+    console.log('reset le local storage switch sur la database');
     
   }
 
@@ -71,11 +91,14 @@ const data = await fetch("./Api/data.json").then(res => res.json()).catch(err =>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <Map latitude = {this.state.latitude} longitude={this.state.longitude} markerList={this.state.markerList}/>
+        <Map latitude = {this.state.latitude} longitude={this.state.longitude} markerList={this.state.markerList} favoris={this.handleFavori}/>
       </IonContent>
       <ion-footer no-shadow>
-        <IonButton onClick={this.localStorage}> save</IonButton>
-        <IonButton> reset</IonButton>
+      <IonItem>
+        <IonLabel>Favoris</IonLabel>
+        <IonToggle value="Favoris" onClick={this.handleFavori}></IonToggle>
+      </IonItem>
+      <IonButton onClick={this.reset}>Reset</IonButton>
       </ion-footer>
     </IonApp>
     

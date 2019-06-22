@@ -3,6 +3,7 @@ import './map.css';
 import L from 'leaflet';
 import {IonCard} from '@ionic/react';
 
+
 class Map extends React.Component {
 
   constructor(props){
@@ -11,8 +12,17 @@ class Map extends React.Component {
     this.state = {
       latitude: props.latitude,
       longitude: props.longitude,
-      markerList: props.markerList
+      favoris: []
     };
+    this.setStyle = L.icon ({
+      iconUrl:"../../assets/img/marker-icon-red.png",
+      shadowUrl:"../../assets/img/marker-shadow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    })
+
 
   }
 
@@ -20,40 +30,44 @@ class Map extends React.Component {
 
     if (this.state.latitude !== this.props.latitude && this.state.longitude !== this.props.longitude ) {
       
-       this.map.setView([this.props.latitude, this.props.longitude],15)
-      this.marker = L.marker([this.props.latitude, this.props.longitude]).addTo(this.map).bindPopup('Vous êtes ici');
-
+      this.map.setView([this.props.latitude, this.props.longitude],14)
+      this.marker = L.marker([this.props.latitude, this.props.longitude],{icon:this.setStyle}).addTo(this.map).bindPopup('<h1>'+'Vous êtes ici'+'</h1>');
+      
     }
    
-      let liste = [];
-      liste = this.props.markerList; 
-      liste.map(point=> {
-             L.geoJSON(point).addTo(this.map).bindPopup(point.properties.popupContent);
+      this.liste = [];
+      this.liste = this.props.markerList; 
+      this.liste.map(point=> {
+             L.geoJSON(point).addTo(this.map).bindPopup('<h1>'+point.properties.popupContent+'</h1>');
              
-            })
-
-    
+            });
 
   }
 
-  componentDidMount = () => {
+  componentDidMount = () =>{
 
     this.map = L.map('mapid', {
       center: [this.state.latitude, this.state.longitude],
       zoom: 7,
-      layers: [
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }),
-      ]
+      
     });
+  
+     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(this.map)
     
+    setTimeout(()=> {this.map.invalidateSize()},1000);
+    
+  }
+
+  listenTarget = () => {
+    console.log('listen target ')
   }
 
   render() {
     return (
     <IonCard>
-    <ion-card-content id="mapid"> </ion-card-content>
+    <ion-card-content id="mapid"></ion-card-content>
     </IonCard>
     )
   }
