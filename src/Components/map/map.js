@@ -68,7 +68,9 @@ class Map extends React.Component {
   }
 
   listenTarget = () => {
-    document.querySelector("#mapid").addEventListener('click',e =>{this.afficheInfo(e)})
+    document.querySelector("#mapid").addEventListener('click',e =>{
+      // e.stopPropagation();
+      this.afficheInfo(e)})
     
   }
  

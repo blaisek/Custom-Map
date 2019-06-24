@@ -6,7 +6,7 @@
         "properties": {
             "id": 1,
             "name": "Parc Gourgas",
-            "popupContent": "Parc Gourgas <img src=https://files.newsnetz.ch/story/2/7/9/27940311/4/topelement.jpg><p>Un petit parc de quartier, à deux pas de Plainpalais, dédié à l’écrivain Georges Haldas</p> <a href=http://www.ville-geneve.ch/plan-ville/parcs-jardins-plages-bains-publics/parc-gourgas  target=_blank>lien externe</a><br/><input type=checkbox />"
+            "popupContent": "Parc Gourgas <img src=../assets/img/gourgas.jpg><p>Un petit parc de quartier, à deux pas de Plainpalais, dédié à l’écrivain Georges Haldas</p> <a href=http://www.ville-geneve.ch/plan-ville/parcs-jardins-plages-bains-publics/parc-gourgas  target=_blank>lien externe</a><br/><input type=checkbox />"
         },
         "geometry": {
             "type": "Point",
