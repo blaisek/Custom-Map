@@ -93,6 +93,7 @@ const data = await fetch("./Api/data.json").then(res => res.json()).catch(err =>
       <IonContent>
         <Map latitude = {this.state.latitude} longitude={this.state.longitude} markerList={this.state.markerList} favoris={this.handleFavori}/>
       </IonContent>
+      
       <ion-footer no-shadow>
       <IonItem>
         <IonLabel>Favoris</IonLabel>

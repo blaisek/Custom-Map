@@ -30,13 +30,15 @@ class Map extends React.Component {
 
     if (this.state.latitude !== this.props.latitude && this.state.longitude !== this.props.longitude ) {
       
-      this.map.setView([this.props.latitude, this.props.longitude],14)
+      this.map.setView([this.props.latitude, this.props.longitude],14);
+      //eslint-disable-next-line
       this.marker = L.marker([this.props.latitude, this.props.longitude],{icon:this.setStyle}).addTo(this.map).bindPopup('<h1>'+'Vous êtes ici'+'</h1>');
       
     }
    
       this.liste = [];
       this.liste = this.props.markerList; 
+      // eslint-disable-next-line
       this.liste.map(point=> {
              L.geoJSON(point).addTo(this.map).bindPopup('<h1>'+point.properties.popupContent+'</h1>');
              
@@ -61,17 +63,22 @@ class Map extends React.Component {
     
   }
 
-  afficheInfo = (e) => {
-    if (e.target.nodeName === "IMG"){
-      console.log('listen target',e)
-    }
-  }
+
 
   listenTarget = () => {
     document.querySelector("#mapid").addEventListener('click',e =>{
       // e.stopPropagation();
-      this.afficheInfo(e)})
-    
+      if (e.target.nodeName === "IMG"){
+
+        let popUp = document.getElementsByClassName('leaflet-popup-content');
+        let input = popUp[0].querySelector('input')
+        
+
+        console.log('listen target ',popUp)
+        
+      }      
+      
+    })
   }
  
 
